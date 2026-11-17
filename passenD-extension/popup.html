@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div id="setupView" class="view">
+    <h2>PassenD</h2>
+    <p class="hint">Paste URL pairing dari aplikasi PassenD di HP, atau scan QR.</p>
+    <textarea id="pairingUrl" rows="4"
+        placeholder="passend://pair?ip=192.168.1.5&port=8765&token=..."></textarea>
+    <button id="btnSaveConnect" class="primary">Simpan &amp; Connect</button>
+    <div class="qr-buttons">
+        <button id="btnScanQr">📷 Scan QR</button>
+        <button id="btnUploadQr">🖼 Upload QR</button>
+    </div>
+    <div id="setupError" class="error"></div>
+</div>
+
+<div id="lockedView" class="view" style="display:none">
+    <h2>Vault Terkunci</h2>
+    <p class="hint">Buka PassenD di HP dan unlock vault.</p>
+    <button id="btnRetryUnlock" class="primary">Refresh</button>
+    <button id="btnUnpairFromLocked" class="link">Unpair</button>
+    <div id="lockedError" class="error"></div>
+</div>
+
+<div id="mainView" style="display:none">
+    <div class="tabs">
+        <button class="tab active" data-tab="vault">Vault</button>
+        <button class="tab" data-tab="gen">Generator</button>
+        <button class="tab" data-tab="settings">⚙</button>
+    </div>
+
+    <div id="tabVault" class="tab-content view">
+        <div class="header">
+            <span class="small">PassenD <span id="versionText" class="version-tag"></span></span>
+            <span id="statusBadge" class="badge">—</span>
+        </div>
+        <div id="mainError" class="error"></div>
+        <div id="healthBar" class="health-bar" style="display:none"></div>
+        <div id="credList" class="list"></div>
+        <div class="footer">
+            <button id="btnAdd">+ Add</button>
+            <button id="btnRefresh">Refresh</button>
+        </div>
+    </div>
+
+    <div id="tabGen" class="tab-content view" style="display:none">
+        <div class="sub-tabs">
+            <button class="sub-tab active" data-subtab="password">Password</button>
+            <button class="sub-tab" data-subtab="passphrase">Passphrase</button>
+        </div>
+        <div id="genPasswordView">
+            <div class="gen-output">
+                <code id="genPassword">-</code>
+                <button id="btnGenRegen" class="small-btn">↻</button>
+            </div>
+            <div class="strength"><div class="bar" id="genStrengthBar"></div></div>
+            <label>Panjang: <span id="genLenLabel">20</span></label>
+            <input id="genLen" type="range" min="8" max="64" value="20">
+            <div class="checks">
+                <label><input type="checkbox" id="genLower" checked> a-z</label>
+                <label><input type="checkbox" id="genUpper" checked> A-Z</label>
+                <label><input type="checkbox" id="genDigits" checked> 0-9</label>
+                <label><input type="checkbox" id="genSymbols"> !@#</label>
+            </div>
+            <div class="row">
+                <button id="btnGenCopy" class="primary">Salin</button>
+                <button id="btnGenSave">Simpan ke Vault</button>
+            </div>
+        </div>
+        <div id="genPassphraseView" style="display:none">
+            <div class="gen-output">
+                <code id="ppOutput">-</code>
+                <button id="btnPpRegen" class="small-btn">↻</button>
+            </div>
+            <div class="strength"><div class="bar" id="ppStrengthBar"></div></div>
+            <div id="ppStats" style="font-size:11px; text-align:center; color:var(--sub); margin:4px 0 8px;"></div>
+            <label>Jumlah kata: <span id="ppWordCountLabel">6 kata</span></label>
+            <input id="ppWordCount" type="range" min="3" max="12" value="6">
+            <label>Pemisah antar kata</label>
+            <input id="ppSeparator" type="text" value="-" maxlength="2" style="width:60px;">
+            <div class="checks">
+                <label><input type="checkbox" id="ppCapitalize" checked> Kapital</label>
+                <label><input type="checkbox" id="ppAppendDigit"> + Digit</label>
+            </div>
+            <div class="row">
+                <button id="btnPpCopy" class="primary">Salin</button>
+                <button id="btnPpSave">Simpan ke Vault</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tabSettings" class="tab-content view" style="display:none">
+        <h2>Pengaturan</h2>
+        <label class="toggle">
+            <input type="checkbox" id="optAutoSubmit">
+            <span>Auto-submit form setelah isi</span>
+        </label>
+        <label class="toggle">
+            <input type="checkbox" id="optDarkMode">
+            <span>Dark mode</span>
+        </label>
+        <div class="row" style="margin-top:16px">
+            <button id="btnDisconnect" class="danger">Putus Koneksi</button>
+            <button id="btnUnpair">Unpair</button>
+        </div>
+    </div>
+</div>
+
+<div id="addView" class="view" style="display:none">
+    <h2 id="addTitle">Tambah Kredensial</h2>
+    <label>Site</label>
+    <input id="addSite" type="text" placeholder="contoh: github.com">
+    <label>Username</label>
+    <input id="addUsername" type="text">
+    <label>Password</label>
+    <input id="addPassword" type="password">
+    <label>Catatan (opsional)</label>
+    <input id="addNotes" type="text">
+    <label style="margin-top:14px; color:var(--text); font-weight:bold;">Custom Fields</label>
+    <div id="addCustomFields"></div>
+    <button id="btnAddCustomField" style="width:100%; margin-top:4px; font-size:11px;">+ Tambah Custom Field</button>
+    <button id="btnAddFromTemplate" style="width:100%; margin-top:4px; font-size:11px;">📋 Pakai Template</button>
+    <div class="row" style="margin-top:16px">
+        <button id="btnAddSave" class="primary">Simpan</button>
+        <button id="btnAddCancel">Batal</button>
+    </div>
+    <div id="addError" class="error"></div>
+</div>
+
+<div id="detailOverlay" class="overlay" style="display:none">
+    <div class="overlay-card">
+        <div id="detailContent"></div>
+        <div class="overlay-actions">
+            <button id="btnDetailEdit" class="primary">Edit</button>
+            <button id="btnDetailClose">Tutup</button>
+        </div>
+    </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

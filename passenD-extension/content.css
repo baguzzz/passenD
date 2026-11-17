@@ -1,0 +1,40 @@
+#passend-fill-btn {
+    position: fixed;
+    z-index: 2147483647;
+    padding: 6px 10px;
+    background: #1976D2;
+    color: #fff;
+    border-radius: 6px;
+    font: 12px -apple-system, "Segoe UI", Roboto, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    user-select: none;
+    white-space: nowrap;
+}
+#passend-fill-btn:hover { background: #1565C0; }
+
+#passend-fill-menu {
+    position: fixed;
+    z-index: 2147483647;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    min-width: 220px;
+    max-width: 320px;
+    max-height: 300px;
+    overflow-y: auto;
+    font: 13px -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #111;
+}
+#passend-fill-menu .item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+#passend-fill-menu .item:last-child { border-bottom: none; }
+#passend-fill-menu .item:hover { background: #e3f2fd; }
+#passend-fill-menu .item .site { font-weight: 600; color: #111; }
+#passend-fill-menu .item .user { font-size: 11px; color: #666; margin-top: 2px; }
+#passend-fill-menu .item.empty { color: #888; font-style: italic; cursor: default; }
+#passend-fill-menu .item.empty:hover { background: transparent; }
