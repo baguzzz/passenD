@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scan QR — PassenD</title>
+    <link rel="stylesheet" href="qr-scan.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scan QR Pairing PassenD</h1>
+        <p class="hint">Arahkan kamera ke QR code di aplikasi PassenD (HP), atau upload screenshot QR.</p>
+
+        <div id="videoWrap">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+        </div>
+
+        <div id="status" class="status">Memulai…</div>
+
+        <div class="fallback">
+            <p>Atau upload screenshot QR:</p>
+            <input type="file" id="qrFile" accept="image/*">
+        </div>
+    </div>
+    <script src="jsqr.min.js"></script>
+    <script src="qr-scan.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "PassenD Client",
+  "version": "0.18.2",
+  "description": "Klien browser untuk PassenD password manager (Android).",
+  "permissions": ["storage", "tabs", "scripting", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' ws: wss: http: https: data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PassenD"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "passend@few.com",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["authenticationInfo"],
+        "optional": []
+      }
+    }, 
+  
+  "support_email": {
+    "en-US": "baguzzz@outlook.com",
+    "fr": "baguzzz@outlook.com"
+  }
+},
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  
+}

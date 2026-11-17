@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "en-US": "Client browser untuk PassenD password manager (Android). Menghubungkan Firefox ke vault terenkripsi di HP Anda via WiFi lokal."
+  },
+  "description": {
+    "en-US": "## Fitur Utama\n\n- **Autofill Aman**: Isi password otomatis di halaman login menggunakan kredensial yang tersimpan di aplikasi PassenD di HP Anda.\n- **Komunikasi Lokal (LAN)**: Semua data dikirim melalui WebSocket terenkripsi (AES-GCM + HKDF) di jaringan lokal Anda. Tidak ada data yang dikirim ke server cloud.\n- **Generator Password**: Buat password acak yang kuat dan passphrase yang mudah diingat langsung dari popup.\n- **Dukungan TOTP**: Salin kode 2FA (TOTP/HOTP) dengan satu klik.\n- **Pairing via QR Code**: Hubungkan browser ke HP dengan memindai QR code dari aplikasi PassenD."
+  },
+  "homepage": {
+    "en-US": "https://github.com/USERNAME/passend-firefox"
+  },
+  "support_email": {
+    "en-US": "support@example.com"
+  },
+  "support_url": {
+    "en-US": "https://github.com/USERNAME/passend-firefox/issues"
+  },
+  "categories": ["privacy-security"],
+  "version": {
+    "license": "MIT",
+    "release_notes": {
+      "en-US": "### What's New in 0.18.2\n\n- Perbaikan CSP override agar koneksi `ws://` ke IP LAN diizinkan di Firefox MV3.\n- Perbaikan mekanisme keepalive event page (alarms + Port) untuk stabilitas koneksi.\n- Perbaikan URL-decode token pairing.\n- Debug logging untuk memudahkan troubleshooting."
+    }
+  },
+  "is_experimental": false
+}
