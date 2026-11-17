@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PassenD</string>
+    <string name="hint_master">Master password</string>
+    <string name="hint_master_confirm">Konfirmasi master password</string>
+    <string name="hint_site">Situs (contoh: google.com)</string>
+    <string name="hint_username">Username / Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_notes">Catatan (opsional)</string>
+    <string name="btn_create">Buat Vault</string>
+    <string name="btn_unlock">Buka</string>
+    <string name="btn_unlock_biometric">Buka dengan Biometrik</string>
+    <string name="btn_save">Simpan</string>
+    <string name="btn_delete">Hapus</string>
+    <string name="btn_lock">Kunci</string>
+    <string name="biometric_or">atau</string>
+    <string name="empty_vault">Belum ada kredensial. Tap + untuk menambah.</string>
+    <string name="sc_new_cred">Credential Baru</string>
+    <string name="sc_new_cred_long">Buat kredensial baru</string>
+    <string name="sc_generator">Generator</string>
+    <string name="sc_generator_long">Buat passphrase atau password</string>
+    <string name="sc_import_qr">Import QR</string>
+    <string name="sc_import_qr_long">Import kredensial dari QR</string>
+</resources>

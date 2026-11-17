@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="24dp" android:gravity="center_vertical">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="PassenD" android:textSize="32sp" android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Masukkan master password" android:textSize="14sp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView android:id="@+id/tvAttemptWarning"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="12sp" android:textStyle="bold"
+        android:padding="8dp" android:background="#FFEBEE"
+        android:layout_marginBottom="8dp" android:visibility="gone"/>
+
+    <EditText android:id="@+id/etMasterPassword"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="@string/hint_master" android:inputType="textPassword"
+        android:layout_marginBottom="16dp"/>
+
+    <Button android:id="@+id/btnUnlock"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/btn_unlock"/>
+
+    <TextView android:id="@+id/tvBiometricStatus"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/biometric_or" android:gravity="center"
+        android:layout_marginTop="20dp" android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
+
+    <Button android:id="@+id/btnBiometric"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/btn_unlock_biometric"
+        android:visibility="gone"/>
+</LinearLayout>

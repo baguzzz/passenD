@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:padding="12dp"
+            android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="PassenD"
+                android:textSize="20sp" android:textStyle="bold"/>
+            <Button android:id="@+id/btnBiometricToggle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Bio: OFF" android:textSize="11sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnLock"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Kunci" android:textSize="11sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnMenu"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⋮" android:textSize="16sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="12dp" android:paddingEnd="12dp"/>
+        </LinearLayout>
+
+        <!-- Banner backup reminder -->
+        <LinearLayout android:id="@+id/llBackupReminder"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:padding="10dp" android:background="#FFF3E0"
+            android:visibility="gone">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:textSize="12sp"
+                android:text="⚠ Sudah lama tidak backup. Data Anda hanya tersimpan di perangkat ini."
+                android:textColor="#5D4037"/>
+            <Button android:id="@+id/btnBackupNow"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Backup" android:textSize="11sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:backgroundTint="#EF6C00"/>
+            <Button android:id="@+id/btnBackupDismiss"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✕" android:textSize="12sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvEmpty"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/empty_vault" android:gravity="center"
+            android:padding="32dp" android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:paddingBottom="80dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end" android:layout_margin="16dp"
+        android:contentDescription="Tambah"
+        android:src="@android:drawable/ic_input_add"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Passphrase Generator"
+            android:textSize="22sp" android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Kata acak yang mudah diingat. Cocok untuk master password atau passphrase backup."
+            android:textSize="12sp" android:layout_marginBottom="20dp"/>
+
+        <TextView android:id="@+id/tvPassphrase"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="20sp" android:textStyle="bold"
+            android:padding="16dp"
+            android:background="#F0F0F0"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView android:id="@+id/tvStats"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="11sp" android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <Button android:id="@+id/btnRegenerate"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="↻ Generate Ulang" android:layout_marginBottom="8dp"/>
+
+        <Button android:id="@+id/btnCopy"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Salin"
+            android:backgroundTint="#1976D2"
+            android:layout_marginBottom="20dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#DDDDDD" android:layout_marginBottom="16dp"/>
+
+        <TextView android:id="@+id/tvWordCount"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="6 kata" android:textSize="13sp"
+            android:layout_marginBottom="4dp"/>
+
+        <SeekBar android:id="@+id/sbWordCount"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Pemisah antar kata:" android:textSize="12sp"
+            android:layout_marginBottom="4dp"/>
+        <EditText android:id="@+id/etSeparator"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="-" android:textSize="14sp"
+            android:inputType="text" android:maxLength="2"
+            android:layout_marginBottom="12dp"/>
+
+        <CheckBox android:id="@+id/cbCapitalize"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Kapital huruf pertama"
+            android:checked="true"
+            android:layout_marginBottom="4dp"/>
+
+        <CheckBox android:id="@+id/cbAppendDigit"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Tambahkan 1 digit di akhir"/>
+    </LinearLayout>
+</ScrollView>

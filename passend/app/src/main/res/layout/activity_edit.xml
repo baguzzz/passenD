@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+
+        <EditText android:id="@+id/etSite"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="@string/hint_site" android:inputType="textUri"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText android:id="@+id/etUsername"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="@string/hint_username" android:inputType="text"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+            <EditText android:id="@+id/etPassword"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_password" android:inputType="textPassword"/>
+            <Button android:id="@+id/btnRevealPassword"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="👁" android:textSize="18sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginStart="6dp"/>
+            <Button android:id="@+id/btnGeneratePassword"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🎲" android:textSize="18sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <ProgressBar android:id="@+id/pbStrength"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="6dp"
+            android:max="5" android:progress="0"
+            android:progressTint="#4CAF50"
+            android:layout_marginBottom="4dp"/>
+
+        <Button android:id="@+id/btnViewHistory"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Lihat History Password"
+            android:textSize="12sp" android:visibility="gone"
+            android:backgroundTint="#E0E0E0" android:textColor="#111111"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TOTP/HOTP Secret (base32, opsional):"
+            android:textSize="12sp" android:layout_marginBottom="4dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/etOtpSecret"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Contoh: JBSWY3DPEHPK3PXP"
+                android:inputType="textNoSuggestions|textVisiblePassword"
+                android:textSize="13sp"/>
+            <Button android:id="@+id/btnOtpScan"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📷" android:textSize="16sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:layout_marginStart="4dp"/>
+            <Button android:id="@+id/btnOtpPaste"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Paste" android:textSize="11sp"
+                android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingStart="8dp" android:paddingEnd="8dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Tipe OTP:" android:textSize="12sp"
+                android:layout_marginEnd="8dp"/>
+            <Spinner android:id="@+id/spOtpType"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/llOtpCounter"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Counter:" android:textSize="12sp"
+                android:layout_marginEnd="8dp"/>
+            <EditText android:id="@+id/etOtpCounter"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0" android:textSize="14sp"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Kode saat ini (tap untuk copy):" android:textSize="12sp"/>
+        <TextView android:id="@+id/tvOtpCode"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="—" android:textSize="26sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:gravity="center" android:padding="8dp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Custom Fields (PIN, security Q&amp;A, dll):"
+            android:textSize="12sp" android:layout_marginBottom="4dp"/>
+
+        <LinearLayout android:id="@+id/llCustomFields"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp">
+            <Button android:id="@+id/btnAddCustomField"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+ Tambah"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnCustomFieldTemplates"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📋 Template"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <EditText android:id="@+id/etNotes"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="@string/hint_notes" android:inputType="textMultiLine"
+            android:minLines="2" android:gravity="top"
+            android:layout_marginBottom="24dp"/>
+
+        <Button android:id="@+id/btnSave"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/btn_save"/>
+
+        <Button android:id="@+id/btnDelete"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/btn_delete"
+            android:textColor="#FFFFFF" android:backgroundTint="#D32F2F"
+            android:layout_marginTop="12dp" android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="new_credential"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_add"
+        android:shortcutShortLabel="@string/sc_new_cred"
+        android:shortcutLongLabel="@string/sc_new_cred_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.few.passend"
+            android:targetClass="com.few.passend.ui.LockActivity">
+            <extra android:name="shortcut_target" android:value="new_credential" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="generator"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:shortcutShortLabel="@string/sc_generator"
+        android:shortcutLongLabel="@string/sc_generator_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.few.passend"
+            android:targetClass="com.few.passend.ui.LockActivity">
+            <extra android:name="shortcut_target" android:value="generator" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="import_qr"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:shortcutShortLabel="@string/sc_import_qr"
+        android:shortcutLongLabel="@string/sc_import_qr_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.few.passend"
+            android:targetClass="com.few.passend.ui.LockActivity">
+            <extra android:name="shortcut_target" android:value="import_qr" />
+        </intent>
+    </shortcut>
+
+</shortcuts>
