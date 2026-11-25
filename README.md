@@ -40,7 +40,7 @@ passenD/
 #### Langkah Build Manual
 1. Kloning repositori ini:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/baguzzz/passenD
    cd passenD/passend
    ```
 2. Berikan izin eksekusi pada Gradle wrapper (Linux/macOS):
