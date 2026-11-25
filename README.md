@@ -1,86 +1,145 @@
+
+
+```markdown
 # 🔐 passenD
 
-**passenD** adalah ekosistem manajemen kredensial dan kata sandi multi-platform yang dirancang untuk memudahkan penyimpanan dan pengisian otomatis (*autofill*) akun Anda secara aman di perangkat mobile maupun peramban web (*browser*).
+**passenD** adalah proyek manajemen kredensial lintas perangkat yang terdiri dari aplikasi Android dan ekstensi peramban untuk Chromium serta Firefox.
 
-[![Android CI - Build Debug APK](https://github.com)](https://github.com)
+[![Android CI - Build Debug APK](https://github.com/baguzzz/passenD/actions/workflows/android-build.yml/badge.svg)](https://github.com/baguzzz/passenD/actions/workflows/android-build.yml)
 
----
+> Gunakan rilis hanya dari sumber tepercaya. Lindungi perangkat Anda dengan kata sandi, PIN, atau biometrik.
 
-## 📂 Struktur Repositori
-
-Repositori ini merupakan *monorepo* yang terdiri dari beberapa komponen utama:
+## Struktur Repositori
 
 ```text
 passenD/
-├── passend/               # Aplikasi Android utama (Gradle / Kotlin / Java)
-├── passenD-extension/     # Ekstensi peramban berbasis Chromium (Chrome, Edge, Brave)
-├── passend-firefox/       # Ekstensi peramban untuk Mozilla Firefox
-└── .github/workflows/     # Konfigurasi CI/CD GitHub Actions untuk build APK otomatis
+├── passend/               # Aplikasi Android
+├── passenD-extension/     # Ekstensi Chromium
+├── passend-firefox/       # Ekstensi Firefox
+└── .github/workflows/     # Workflow GitHub Actions
 ```
 
----
+## Fitur Utama
 
-## ✨ Fitur Utama
+- Penyimpanan kredensial lokal.
+- Ekstensi Chrome, Edge, Brave, dan Firefox.
+- Pembuatan kata sandi dan TOTP.
+- Impor, ekspor, dan cadangan vault.
+- Build APK debug otomatis melalui GitHub Actions.
 
-- **Aplikasi Mobile Android (`passend`):** Kelola, simpan, dan buat kata sandi kuat langsung dari perangkat Android Anda.
-- **Ekstensi Chromium (`passenD-extension`):** Integrasi langsung untuk peramban Google Chrome, Microsoft Edge, dan Brave.
-- **Ekstensi Firefox (`passend-firefox`):** Dukungan penuh untuk pengguna Mozilla Firefox.
-- **Build Otomatis (CI/CD):** Pembuatan file Debug APK secara otomatis setiap kali ada pembaruan kode melalui GitHub Actions.
+## Persyaratan
 
----
+- JDK 17
+- Android SDK
+- Android Studio atau Gradle
+- Peramban Chromium atau Mozilla Firefox
 
-## 🚀 Panduan Instalasi & Pengembangan
+## Instalasi Aplikasi Android
 
-### 1. Aplikasi Android (`passend`)
+### Kloning Repository
 
-#### Prasyarat
-- **JDK 17** atau lebih baru
-- **Android Studio** (disarankan versi terbaru) atau Android SDK
+```bash
+git clone https://github.com/baguzzz/passenD.git
+cd passenD
+```
 
-#### Langkah Build Manual
-1. Kloning repositori ini:
-   ```bash
-   git clone https://github.com/baguzzz/passenD
-   cd passenD/passend
-   ```
-2. Berikan izin eksekusi pada Gradle wrapper (Linux/macOS):
-   ```bash
-   chmod +x gradlew
-   ```
-3. Jalankan perintah build Debug APK:
-   ```bash
-   ./gradlew assembleDebug
-   ```
-4. File APK hasil build dapat ditemukan di:
-   `passend/app/build/outputs/apk/debug/`
+### Build Menggunakan Gradle Wrapper
 
-> **Catatan:** Anda juga dapat mengunduh file **passenD-debug-apk** langsung melalui tab **Actions** pada repositori ini setelah proses build selesai.
+Linux atau macOS:
 
----
+```bash
+cd passend
+chmod +x gradlew
+./gradlew assembleDebug
+```
 
-### 2. Ekstensi Chromium (`passenD-extension`)
+Windows:
 
-1. Buka peramban berbasis Chromium (Chrome / Edge / Brave).
-2. Akses halaman ekstensi melalui `chrome://extensions/` (atau `edge://extensions/`).
-3. Aktifkan **Developer mode** (Mode pengembang) di pojok kanan atas.
-4. Klik **Load unpacked** dan pilih folder `passenD-extension/` dari repositori ini.
+```bat
+cd passend
+gradlew.bat assembleDebug
+```
 
----
+APK debug akan tersedia di:
 
-### 3. Ekstensi Mozilla Firefox (`passend-firefox`)
+```text
+passend/app/build/outputs/apk/debug/
+```
 
-1. Buka peramban Mozilla Firefox dan akses `about:debugging#/runtime/this-firefox`.
-2. Klik tombol **Load Temporary Add-on...**.
-3. Arahkan ke folder `passend-firefox/` dan pilih file `manifest.json`.
+> Pastikan terminal berada dalam direktori `passend` yang berisi file `settings.gradle.kts` dan `gradlew`.
 
----
+## Instalasi Ekstensi Chromium
 
-## 🤝 Kontribusi
+1. Buka `chrome://extensions/`, `edge://extensions/`, atau halaman ekstensi peramban Chromium.
+2. Aktifkan **Developer mode**.
+3. Pilih **Load unpacked**.
+4. Pilih folder:
 
-Kontribusi selalu diterima! Silakan buat *Fork* dari repositori ini, buat *branch* fitur baru (`git checkout -b fitur-baru`), lakukan *commit* perubahan Anda, dan ajukan **Pull Request**.
+```text
+passenD-extension
+```
 
----
+## Instalasi Ekstensi Firefox
 
-## 📄 Lisensi
+1. Buka `about:debugging#/runtime/this-firefox`.
+2. Pilih **Load Temporary Add-on**.
+3. Masuk ke folder `passend-firefox`.
+4. Pilih file `manifest.json`.
 
-Proyek ini dikembangkan oleh [@baguzzz](https://github.com/baguzzz). Silakan tambahkan informasi lisensi (misalnya MIT License) sesuai kebutuhan distribusi proyek Anda.
+## Pengujian Build Android
+
+Linux atau macOS:
+
+```bash
+cd passend
+./gradlew assembleDebug
+```
+
+Windows:
+
+```bat
+cd passend
+gradlew.bat assembleDebug
+```
+
+Hasil build dapat diperiksa di:
+
+```text
+passenD/passend/app/build/outputs/apk/debug/
+```
+
+## Download APK dari GitHub Actions
+
+1. Buka tab **Actions** repository.
+2. Pilih workflow **Android CI - Build Debug APK**.
+3. Pilih run dengan status berhasil.
+4. Unduh artefak bernama `passenD-debug-apk`.
+
+## Kontribusi
+
+1. Fork repository ini.
+2. Buat branch baru:
+
+```bash
+git switch -c fitur-baru
+```
+
+3. Commit perubahan:
+
+```bash
+git add .
+git commit -m "Tambahkan fitur baru"
+```
+
+4. Push branch:
+
+```bash
+git push origin fitur-baru
+```
+
+5. Buat Pull Request ke branch `main`.
+
+## Lisensi
+
+Repository saat ini belum memiliki file lisensi. Tambahkan lisensi sebelum mendistribusikan aplikasi atau membuat rilis publik.
+```
