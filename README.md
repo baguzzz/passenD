@@ -1,6 +1,5 @@
 
 
-```markdown
 # 🔐 passenD
 
 **passenD** adalah proyek manajemen kredensial lintas perangkat yang terdiri dari aplikasi Android dan ekstensi peramban untuk Chromium serta Firefox.
@@ -142,4 +141,3 @@ git push origin fitur-baru
 ## Lisensi
 
 Repository saat ini belum memiliki file lisensi. Tambahkan lisensi sebelum mendistribusikan aplikasi atau membuat rilis publik.
-```
